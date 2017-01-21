@@ -17,6 +17,11 @@ public class DefaultUserDetailsService implements UserDetailsService {
             System.out.printf("Username: %s \n", username);
             return new User(username, "123", Collections.singleton(new SimpleGrantedAuthority("USER")));
         }
+
+        if (username.equalsIgnoreCase("mahsa")) {
+            System.out.printf("Username: %s \n", username);
+            return new User(username, "haha", Collections.singleton(new SimpleGrantedAuthority("ADMIN")));
+        }
         throw new SecurityException("Username " + username + " not found");
     }
 }
